@@ -1,5 +1,5 @@
 import { ScatterChart } from '@mui/x-charts';   
-import data from "./sample_data.json"
+import data from "../sample_data.json"
 
 export function Graph():JSX.Element{
 
