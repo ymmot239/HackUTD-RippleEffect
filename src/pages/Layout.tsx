@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Sidebar } from "../widgets/Sidebar";
-import { SetStateAction, useState } from "react";
-import { Button } from "@mui/material";
+import { useState } from "react";
 
 export function Layout(): JSX.Element {
     const [sidebarOpen, setSideBarOpen] = useState(false);

@@ -217,15 +217,47 @@ export class ClientData {
      */
     public static filterData(
         data: cars[],
-        field: filterTypes,
-        value: string,
+        field?: filterTypes,
+        value?: string,
     ): cars[] {
-        let final: cars[] = [];
-        for (let x of data) {
-            if (x[field] === value) {
+        if(field && value){
+            const final: cars[] = [];
+            for (let x of data) {
+                if (x[field]===value) {
+                    final.push(x);
+                }
+            }
+            return final;
+        }else{
+            return data;
+        }
+    }
+
+    /**
+     * takes a number of fields and their correct values to filter out datapoints
+     * @param data - data to be sorted
+     * @param field - fields to check
+     * @param value - values to validate
+     * @returns filtered data
+     */
+    public static multiFilterData(
+        data: cars[],
+        field?: filterTypes[],
+        value?: string[]
+    ){
+        if(field && value){
+            const final: cars[] = [];
+            outerloop: for (let x of data) {
+                for(let f = 0; f < Math.min(field.length, value.length); f++){
+                    if (x[field[f]]!==value[f]) {
+                        continue outerloop;
+                    }
+                }
                 final.push(x);
             }
+            return final;
+        }else{
+            return data;
         }
-        return final;
     }
 }
