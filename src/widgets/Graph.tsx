@@ -1,13 +1,13 @@
-import { ScatterChart, ScatterValueType } from "@mui/x-charts";
+import { ScatterChart, ScatterSeriesType, ScatterValueType } from "@mui/x-charts";
 import { ClientData, filterTypes } from "../ClientData";
 
 export interface graphProps{
     year:number,
-    field: filterTypes,
-    value: string,
+    field?: filterTypes,
+    value?: string,
 }
 
-export function Graph(props:graphProps): JSX.Element {
+export function SingleGraph(props:graphProps): JSX.Element {
     //const data2 = Object.values(data[2021]);
 
     /*
@@ -59,7 +59,7 @@ export function Graph(props:graphProps): JSX.Element {
         ClientData.getDataByYear(props.year),
         props.field,
         props.value
-    );
+    );  
 
     const valueFormatter = (value:ScatterValueType|undefined) => `${value?.id}`;
 
@@ -84,6 +84,54 @@ export function Graph(props:graphProps): JSX.Element {
                 })),
                 valueFormatter
             }]
+            }
+            width={500}
+            height={500}
+        />
+    );
+}
+
+export interface multiGraphProps{
+    years:number[],
+    field?: filterTypes[],
+    value?: string[],
+}
+
+export function MultiGraph(props:multiGraphProps): JSX.Element {
+    
+
+    const data = props.years.map((y)=>(
+        ClientData.multiFilterData(
+            ClientData.getDataByYear(y),
+            props.field,
+            props.value
+        )
+    ))
+
+    const valueFormatter = (value:ScatterValueType|undefined) => `${value?.id}`;
+
+    return (
+        <ScatterChart
+            xAxis={[
+                {
+                    valueFormatter: (a,c) => {
+                        c;
+                        const jsDate = ExcelDateToJSDate(a);
+                        return jsDate.toUTCString().slice(8,11);
+                        
+                    }
+                }
+            ]}
+            series={
+                props.years.map((y,ind)=>({
+                    label:y.toString(),
+                    data:data[ind].map((v) => ({
+                        x:v["Release Date"]%360,
+                        y:v["City CO2 Rounded Adjusted"],
+                        id:v["Division"]+" " + v["Carline"]+" " + v["Verify Mfr Cd"]+" " + v["Index (Model Type Index)"]
+                    })),
+                    valueFormatter
+                }))
             }
             width={500}
             height={500}
