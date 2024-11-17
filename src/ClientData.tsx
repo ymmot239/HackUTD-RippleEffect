@@ -220,9 +220,9 @@ export class ClientData {
         field: filterTypes,
         value: string,
     ): cars[] {
-        let final: cars[] = [];
+        const final: cars[] = [];
         for (let x of data) {
-            if (x[field] === value) {
+            if (x[field]===value) {
                 final.push(x);
             }
         }
