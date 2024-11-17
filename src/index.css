@@ -67,14 +67,23 @@ button:focus-visible {
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
-  left: 0;
+  left: -160px;
   background-color: #ff0000; /* Red */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
 
-div.content {
+.sidebar.open {
+  left: 0;
+}
+
+.content.open {
   margin-left: 200px;
+}
+
+
+.content {
+  margin-left: 0px;
   padding: 1px 16px;
 
 }

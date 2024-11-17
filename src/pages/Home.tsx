@@ -8,5 +8,5 @@ export function Home():JSX.Element{
             <Graph/>
             <p>asdhlkfj</p>
         </>
-)
+    )
 }

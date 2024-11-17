@@ -1,8 +1,13 @@
-export function Sidebar():JSX.Element{
+import { SetStateAction } from "react";
 
+interface SidebarProps{
+    isOpen:boolean,
+    toggleSidebar:React.Dispatch<SetStateAction<boolean>>,
+}
 
-
-    return <div className="sidebar">
+export function Sidebar(props:SidebarProps):JSX.Element{
+    const sidebarClass = props.isOpen ? "sidebar open" : "sidebar";
+    return <div className={sidebarClass}>
             <h3>Home</h3>
           
             <h5>Reports</h5>
