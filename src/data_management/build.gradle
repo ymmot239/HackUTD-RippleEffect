@@ -1,11 +1,15 @@
 plugins {
 	id 'java'
+	id 'application'
 	id 'org.springframework.boot' version '3.3.5'
 	id 'io.spring.dependency-management' version '1.1.6'
 }
 
+
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
+sourceSets.main.java.srcDirs = ['com/example', 'com/example/demo']
+mainClassName = 'com.example.demo.BackendApplication'
 
 java {
 	toolchain {

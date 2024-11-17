@@ -1,6 +1,5 @@
-package com.example.demo;
+package com.example;
 
-import com.example.demo.FileMetadata;
 import com.example.demo.FileRepository;
 import org.springframework.stereotype.Service;
 
