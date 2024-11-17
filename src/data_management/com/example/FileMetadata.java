@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,7 +19,8 @@ public class FileMetadata {
     private LocalDateTime uploadDate; // Date and time of upload
 
     // Default constructor (required by JPA)
-    public FileMetadata() {}
+    public FileMetadata() {
+    }
 
     // Constructor with parameters
     public FileMetadata(String fileName, String cid) {

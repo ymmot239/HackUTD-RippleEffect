@@ -1,12 +1,11 @@
 import { Graph } from "../widgets/Graph";
 
-
-export function Home():JSX.Element{
-    return( 
+export function Home(): JSX.Element {
+    return (
         <>
             <h1>Toyota Data Analysis</h1>
-            <Graph/>
+            <Graph />
             <p>asdhlkfj</p>
         </>
-)
+    );
 }

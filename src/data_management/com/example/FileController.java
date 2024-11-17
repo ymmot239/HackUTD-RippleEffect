@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -83,5 +83,3 @@ public class FileController {
         return jsonNode.get("IpfsHash").asText();
     }
 }
-
-
