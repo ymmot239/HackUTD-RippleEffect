@@ -11,7 +11,7 @@ export function Layout(): JSX.Element {
 
     return (
         <>
-            <Button onClick={handleViewSidebar}>click here</Button>
+            <Button onClick={handleViewSidebar}>Menu Options</Button>
             <Sidebar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
             <div className={sidebarOpen ? "content open" : "content"}>
                 <Outlet />

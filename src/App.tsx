@@ -8,10 +8,11 @@ import { Home } from "./pages/Home";
 import NoPage from "./pages/NoPage";
 import { SignInEmail } from './pages/SignInEmail'
 import { SignInPassword } from './pages/SignInPassword'
+import { FileUpload } from './pages/FileUpload'
 
 function App() {
     const [count, setCount] = useState(0);
-
+ 
     return (
         <>
             <BrowserRouter>
@@ -19,8 +20,10 @@ function App() {
                     <Route path="/" element={<Layout />}>
                         <Route index element={<Home />} />
                         <Route path="*" element={<NoPage />} />
-                      <Route path="a" element={<SignInEmail />} />
-          <Route path="b" element={<SignInPassword />} />
+                        <Route path="email" element={<SignInEmail />} />
+                        <Route path="password" element={<SignInPassword />} />
+                        <Route path="fileUpload" element={<FileUpload/>} />
+
         </Route>
                 </Routes>
             </BrowserRouter>
