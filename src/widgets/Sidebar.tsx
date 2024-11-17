@@ -1,4 +1,6 @@
 import { SetStateAction } from "react";
+import { CiMenuBurger } from "react-icons/ci";
+import { Button } from "@mui/material";
 
 interface SidebarProps {
     isOpen: boolean;
@@ -9,6 +11,12 @@ export function Sidebar(props: SidebarProps): JSX.Element {
     const sidebarClass = props.isOpen ? "sidebar open" : "sidebar";
     return (
         <div className={sidebarClass}>
+            <Button 
+                style={{position:"fixed",top:"20px", left:"50px", zIndex:1}}
+                title=""
+                startIcon={<CiMenuBurger />}
+                onClick={props.toggleSidebar}
+            />
             <h3>Home</h3>
 
             <h5>Reports</h5>
