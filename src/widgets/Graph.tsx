@@ -133,8 +133,8 @@ export function MultiGraph(props:multiGraphProps): JSX.Element {
                     valueFormatter
                 }))
             }
-            width={500}
-            height={500}
+            width={700}
+            height={700}
         />
     );
 }
